@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2019 at 06:10 PM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Waktu pembuatan: 15 Jun 2019 pada 14.54
+-- Versi server: 10.1.40-MariaDB
+-- Versi PHP: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,116 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_admin`
---
-
-CREATE TABLE `tb_admin` (
-  `id_user` int(255) NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `namalengkap` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `password` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `avatar` text COLLATE utf8mb4_unicode_520_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
---
--- Dumping data for table `tb_admin`
---
-
-INSERT INTO `tb_admin` (`id_user`, `username`, `email`, `namalengkap`, `password`, `type`, `avatar`) VALUES
-(1, 'admin', 'admin@gmail.com', 'administrator', '202cb962ac59075b964b07152d234b70', 'admin', '2b10f8e9a8cf35bd216750928492d585.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_bidang`
---
-
-CREATE TABLE `tb_bidang` (
-  `id_bidang` int(255) NOT NULL,
-  `nama_bidang` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
---
--- Dumping data for table `tb_bidang`
---
-
-INSERT INTO `tb_bidang` (`id_bidang`, `nama_bidang`) VALUES
-(1, 'Enterprise'),
-(2, 'Data Solutions');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_izin`
---
-
-CREATE TABLE `tb_izin` (
-  `id_izin` int(255) NOT NULL,
-  `id_namaizin` int(255) NOT NULL,
-  `id` int(255) NOT NULL,
-  `tglawal` date NOT NULL,
-  `tempat` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `tglakhir` date NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_jabatan`
---
-
-CREATE TABLE `tb_jabatan` (
-  `id_jabatan` int(255) NOT NULL,
-  `nama_jabatan` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
---
--- Dumping data for table `tb_jabatan`
---
-
-INSERT INTO `tb_jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
-(1, 'Deputi'),
-(3, 'Sekretaris'),
-(5, 'Bendahara');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_namaizin`
---
-
-CREATE TABLE `tb_namaizin` (
-  `id_namaizin` int(255) NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `nama_izin` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
---
--- Dumping data for table `tb_namaizin`
---
-
-INSERT INTO `tb_namaizin` (`id_namaizin`, `type`, `nama_izin`) VALUES
-(1, 'cuti', 'Cuti Hamil'),
-(2, 'cuti', 'Cuti Lebaran'),
-(3, 'cuti', 'Cuti Natal'),
-(4, 'sekolah', 'Rapat Petinggi Kampus'),
-(5, 'sekolah', 'Rapat Guru'),
-(6, 'seminar', 'Seminar Bela Negara'),
-(7, 'seminar', 'Seminar Compfest'),
-(8, 'seminar', 'Seminar Sinaptika 2018'),
-(9, 'seminar', 'Seminar Gemastik 11'),
-(11, 'sekolah', 'Rapat Kurikulum'),
-(12, 'cuti', 'Cuti Idul Adha'),
-(13, 'cuti', 'Cuti Pregnant'),
-(14, 'seminar', 'Seminar Google I/O 2018');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_pegawai`
+-- Struktur dari tabel `tb_pegawai`
 --
 
 CREATE TABLE `tb_pegawai` (
@@ -160,88 +53,35 @@ CREATE TABLE `tb_pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
--- Dumping data for table `tb_pegawai`
+-- Dumping data untuk tabel `tb_pegawai`
 --
 
 INSERT INTO `tb_pegawai` (`id`, `nama`, `nip`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `pendidikan_terakhir`, `status_perkawinan`, `status_pegawai`, `id_jabatan`, `id_bidang`, `agama`, `alamat`, `no_ktp`, `no_rumah`, `no_handphone`, `email`, `password`, `id_user`, `tanggal_pengangkatan`, `avatar`) VALUES
-(10, 'Nalika Alzahra', 41551, 'Jakarta', '1989-02-09', 'Perempuan', 'S1', 'Belum kawin', 'Karyawan tetap', 3, 1, 'Islam', 'Komplek Permata Hijau No. 12', 2147483647, 12, 2147483647, 'pegawai@gmail.com', '047aeeb234644b9e2d4138ed3bc7976a', 'pegawai', '2018-07-04', '2c8d297706acce932eb1f14232370517.jpg'),
-(11, 'Kendal Janner', 144124, 'Bandung', '1990-07-10', 'Perempuan', 'S3', 'Belum kawin', 'Karyawan tetap', 1, 1, 'Kristen Protestan', 'Komplek Permata Hijau No. 12', 2147483647, 21, 2147483647, 'pegawai1@gmail.com', '0b96cb1d0dfbcc85f6b57041656abc49', 'pegawai1', '2017-09-01', 'b0ff73b761a90fa10d9b8b9570a58b6e.jpg'),
-(12, 'Benjamin Aljabar R', 412411, 'Jakarta', '1997-01-06', 'Laki-laki', 'SMP/SMA', 'Belum kawin', 'Karyawan kontrak', 3, 1, 'Islam', 'Komplek Permata Hijau No. 12', 2147483647, 22, 2147483647, 'pegawai2@gmail.com', 'fa23517aa1adfaab707494340009a330', 'pegawai2', '2018-02-06', '37d631763c91e22324dd08cd4d20d40b.jpg');
+(1, 'Rizky Amalia Maghfirah', 41551, 'Jember', '1999-02-09', 'Perempuan', 'S1', 'Belum kawin', 'Karyawan tetap', 3, 1, 'Islam', 'Jl.Kenanga Gebang', 2147483647, 12, 2147483647, 'pegawai@gmail.com', '202cb962ac59075b964b07152d234b70', 'pegawai', '2018-07-04', 'avatar.png'),
+(2, 'Devana Ade Luciar', 144124, 'Jember', '1990-07-10', 'Laki-Laki', 'S1', 'Belum kawin', 'Karyawan tetap', 1, 1, 'Islam', 'Jl.Supriadi 117 Jember', 2147483647, 21, 2147483647, 'pegawai1@gmail.com', '0b96cb1d0dfbcc85f6b57041656abc49', 'pegawai1', '2017-09-01', 'avatar.png'),
+(3, 'Ichwal Yudha Bimantara', 412411, 'Jember', '1997-01-06', 'Laki-laki', 'D3', 'Belum kawin', 'Karyawan kontrak', 2, 1, 'Islam', 'Bangsalsari', 2147483647, 22, 2147483647, 'pegawai2@gmail.com', 'fa23517aa1adfaab707494340009a330', 'pegawai2', '2018-02-06', 'avatar.png');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tb_admin`
---
-ALTER TABLE `tb_admin`
-  ADD PRIMARY KEY (`id_user`);
-
---
--- Indexes for table `tb_bidang`
---
-ALTER TABLE `tb_bidang`
-  ADD PRIMARY KEY (`id_bidang`);
-
---
--- Indexes for table `tb_izin`
---
-ALTER TABLE `tb_izin`
-  ADD PRIMARY KEY (`id_izin`);
-
---
--- Indexes for table `tb_jabatan`
---
-ALTER TABLE `tb_jabatan`
-  ADD PRIMARY KEY (`id_jabatan`);
-
---
--- Indexes for table `tb_namaizin`
---
-ALTER TABLE `tb_namaizin`
-  ADD PRIMARY KEY (`id_namaizin`);
-
---
--- Indexes for table `tb_pegawai`
+-- Indeks untuk tabel `tb_pegawai`
 --
 ALTER TABLE `tb_pegawai`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tb_admin`
---
-ALTER TABLE `tb_admin`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `tb_bidang`
---
-ALTER TABLE `tb_bidang`
-  MODIFY `id_bidang` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `tb_izin`
---
-ALTER TABLE `tb_izin`
-  MODIFY `id_izin` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT for table `tb_jabatan`
---
-ALTER TABLE `tb_jabatan`
-  MODIFY `id_jabatan` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `tb_namaizin`
---
-ALTER TABLE `tb_namaizin`
-  MODIFY `id_namaizin` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT for table `tb_pegawai`
+-- AUTO_INCREMENT untuk tabel `tb_pegawai`
 --
 ALTER TABLE `tb_pegawai`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
