@@ -105,6 +105,3 @@ class Daftar_Izin extends CI_Controller {
 	}
 
 }
-
-/* End of file Daftar_Izin.php */
-/* Location: ./application/controllers/Daftar_Izin.php */

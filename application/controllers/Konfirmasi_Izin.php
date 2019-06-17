@@ -15,9 +15,7 @@ class Konfirmasi_Izin extends CI_Controller {
 		$this->m_ki = $this->M_KonfirmasiIzin;
 		if( $this->session->userdata('user_type') == 'admin' ) {
 			$this->user_type = 'Admin';
-		} else if( $this->session->userdata('user_type') == 'baak' ){
-			$this->user_type = 'BAAK';
-		}
+		} 
 	}
 
 	public function list_ajax() {
@@ -48,6 +46,3 @@ class Konfirmasi_Izin extends CI_Controller {
 	}
 
 }
-
-/* End of file Konfirmasi_Izin.php */
-/* Location: ./application/controllers/Konfirmasi_Izin.php */

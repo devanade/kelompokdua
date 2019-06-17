@@ -599,6 +599,3 @@ class Data_Master extends CI_Controller {
 	}
 
 }
-
-/* End of file Data_Master.php */
-/* Location: ./application/controllers/Data_Master.php */

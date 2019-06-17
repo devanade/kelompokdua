@@ -62,6 +62,3 @@ class Surat_Keterangan extends CI_Controller {
 		$this->load->view('Surat_Keterangan_New', $data);
 	}
 }
-
-/* End of file Surat_Keterangan.php */
-/* Location: ./application/controllers/Surat_Keterangan.php */

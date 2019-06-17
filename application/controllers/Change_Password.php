@@ -14,8 +14,6 @@ class Change_Password extends CI_Controller {
 		});
 		if( $this->session->userdata('user_type') == 'admin' ) {
 			$this->user_type = 'Admin';
-		} else if( $this->session->userdata('user_type') == 'baak' ) {
-			$this->user_type = 'BAAK';
 		} else if( $this->session->userdata('user_type') == 'pegawai' ) {
 			$this->user_type = 'Pegawai';
 		}
@@ -48,6 +46,3 @@ class Change_Password extends CI_Controller {
 	}
 
 }
-
-/* End of file Change_Password.php */
-/* Location: ./application/controllers/Change_Password.php */

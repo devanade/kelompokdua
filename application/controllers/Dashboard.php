@@ -26,16 +26,6 @@ class Dashboard extends CI_Controller {
 				$data['content'] = $this->load->view('partial/Dashboard/Admin', $data_content, true);
 				$this->load->view('V_Dashboard', $data);
 				break;
-			case 'baak':
-				$data = generate_page('Dashboard', 'dashboard', 'BAAK');
-
-					$data_content['baak_total_izincuti'] = $this->m_dashboard->baak_total_izincuti();
-					$data_content['baak_total_izinsekolah'] = $this->m_dashboard->baak_total_izinsekolah();
-					$data_content['baak_total_izinseminar'] = $this->m_dashboard->baak_total_izinseminar();
-					$data_content['baak_izin_terkonfirmasi'] = $this->m_dashboard->baak_izin_terkonfirmasi();
-				$data['content'] = $this->load->view('partial/Dashboard/BAAK', $data_content, true);
-				$this->load->view('V_Dashboard', $data);
-				break;
 			case 'pegawai':
 				$data = generate_page('Dashboard', 'dashboard', 'Pegawai');
 
@@ -54,6 +44,3 @@ class Dashboard extends CI_Controller {
 	}
 
 }
-
-/* End of file Dashboard.php */
-/* Location: ./application/controllers/Dashboard.php */
